@@ -19,7 +19,7 @@ export class App {
     @inject(TYPES.IExeptionFilter) private exeptionFilter: IExeptionFilter,
   ) {
     this.app = express();
-    this.port = 8000;
+    this.port = 8001;
   }
 
   useRoutes(): void {
