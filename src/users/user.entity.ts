@@ -1,4 +1,7 @@
 import { hash } from 'bcryptjs';
+import { inject } from 'inversify';
+import { IConfigService } from '../config/config.service.interface';
+import { TYPES } from '../types';
 
 export class User {
   private _password: string;
@@ -20,7 +23,7 @@ export class User {
     return this._password;
   }
 
-  public async setPassword(pass: string): Promise<void> {
-    this._password = await hash(pass, 10);
+  public async setPassword(pass: string, salt: number): Promise<void> {
+    this._password = await hash(pass, salt);
   }
 }
